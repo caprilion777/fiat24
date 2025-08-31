@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Главная", href: "/", anchor: false },
@@ -18,7 +19,6 @@ function scrollToId(e: React.MouseEvent, href: string) {
 }
 
 export default function Header() {
-  const [transparent, setTransparent] = useState(true);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Header() {
       const hero = document.getElementById("home");
       if (!hero) return;
       const rect = hero.getBoundingClientRect();
-      setTransparent(rect.bottom > 80); // header ~height
+      // header ~height
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -41,7 +41,7 @@ export default function Header() {
         className="container max-w-screen-xl mx-auto flex items-center justify-between px-4 h-full"
         aria-label="Главная навигация"
       >
-        <a
+        <Link
           href="/"
           className="flex items-center gap-2 text-lg font-bold tracking-tight text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
         >
@@ -52,7 +52,7 @@ export default function Header() {
             height={128}
             className="w-32 aspect-square -my-8 object-contain transition-transform duration-200"
           />
-        </a>
+        </Link>
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-6">
           {navLinks.map((link) =>
