@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Главная", href: "/", anchor: false },
-  { label: "Как это работает", href: "#how", anchor: true },
+  { label: "Как это работает", href: "/how-it-works" },
   { label: "Условия", href: "/terms" },
   { label: "Связаться", href: "https://t.me/<MY_HANDLE>", external: true },
 ];
@@ -62,20 +62,19 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
                 >
                   {link.label}
                 </a>
               </li>
             ) : (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
-                  onClick={link.anchor ? (e) => scrollToId(e, link.href) : undefined}
-                  className="text-white hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             )
           )}
@@ -100,13 +99,13 @@ export default function Header() {
           <span aria-hidden="true">
             {open ? (
               // X icon
-              <svg width={24} height={24} fill="none" stroke="currentColor" strokeWidth={2}>
+              <svg width={24} height={24} fill="none" stroke="#0F0F0F" strokeWidth={2}>
                 <line x1="6" y1="6" x2="18" y2="18" />
                 <line x1="6" y1="18" x2="18" y2="6" />
               </svg>
             ) : (
               // Hamburger icon
-              <svg width={24} height={24} fill="none" stroke="currentColor" strokeWidth={2}>
+              <svg width={24} height={24} fill="none" stroke="#0F0F0F" strokeWidth={2}>
                 <line x1="4" y1="7" x2="20" y2="7" />
                 <line x1="4" y1="12" x2="20" y2="12" />
                 <line x1="4" y1="17" x2="20" y2="17" />
@@ -126,7 +125,7 @@ export default function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block py-2 text-white hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -134,16 +133,13 @@ export default function Header() {
                 </li>
               ) : (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
-                    onClick={(e) => {
-                      if (link.anchor) scrollToId(e, link.href);
-                      setOpen(false);
-                    }}
-                    className="block py-2 text-white hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                    onClick={() => setOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               )
             )}
