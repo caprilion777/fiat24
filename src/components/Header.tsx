@@ -62,7 +62,7 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                 >
                   {link.label}
                 </a>
@@ -71,7 +71,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                 >
                   {link.label}
                 </Link>
@@ -82,7 +82,7 @@ export default function Header() {
             <a
               href="#form"
               onClick={(e) => scrollToId(e, "#form")}
-              className="ml-2 rounded-full bg-black text-white px-5 py-2 font-medium shadow-sm hover:bg-gray-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+              className="ml-2 rounded-full bg-black text-white px-5 py-2 font-medium shadow-sm hover:bg-gray-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
             >
               Оставить заявку
             </a>
@@ -125,7 +125,7 @@ export default function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -135,7 +135,7 @@ export default function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -150,7 +150,7 @@ export default function Header() {
                   scrollToId(e, "#form");
                   setOpen(false);
                 }}
-                className="block mt-2 rounded-full bg-black text-white px-5 py-2 font-medium shadow-sm hover:bg-gray-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                className="block mt-2 rounded-full bg-black text-white px-5 py-2 font-medium shadow-sm hover:bg-gray-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
               >
                 Оставить заявку
               </a>
