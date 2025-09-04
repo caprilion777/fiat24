@@ -28,6 +28,25 @@
   text-shadow: 0 4px 24px rgba(0,0,0,0.85), 0 1.5px 0 rgba(0,0,0,0.7);
 }
 
+.responsive-heading {
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  .responsive-heading {
+    font-size: 24px;
+  }
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .step-title {
+    font-size: 20px;
+  }
+}
+
 @font-face {
   font-family: 'Montserrat';
   src: url('/fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
@@ -74,4 +93,8 @@ body {
 @keyframes sweep {
   0% { left: -75%; }
   100% { left: 125%; }
+}
+
+.footer-shadow {
+  box-shadow: 0 -4px 24px 0 rgba(0,0,0,0.25), 0 -1.5px 0 rgba(0,0,0,0.10);
 }

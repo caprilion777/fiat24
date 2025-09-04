@@ -6,7 +6,7 @@ import Link from "next/link";
 const navLinks = [
   { label: "Главная", href: "/", anchor: false },
   { label: "Как это работает", href: "/how-it-works" },
-  { label: "Условия", href: "/terms" },
+  { label: "Условия", href: "/conditions" },
   { label: "Связаться", href: "https://t.me/<MY_HANDLE>", external: true },
 ];
 
@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-30 transition-colors duration-300 h-[88px] md:h-auto bg-[#A09D9D] shadow-md md:shadow-none md:bg-transparent"
+      className="fixed top-0 left-0 w-full z-30 transition-colors duration-300 h-[88px] md:h-auto bg-[#F9F9F9] shadow-md md:shadow-none md:bg-transparent"
     >
       <nav
         className="container max-w-screen-xl mx-auto flex items-center justify-between px-4 h-full"
@@ -62,7 +62,7 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
+                  className="text-[#0F0F0F] hover:text-[#169EAD] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                 >
                   {link.label}
                 </a>
@@ -71,7 +71,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
+                  className="text-[#0F0F0F] hover:text-[#169EAD] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                 >
                   {link.label}
                 </Link>
@@ -116,7 +116,7 @@ export default function Header() {
         {/* Mobile menu */}
         {open && (
           <ul
-            className="absolute left-0 top-full w-full bg-[#A09D9D] shadow-md flex flex-col gap-2 px-4 py-4 md:hidden animate-fade-in items-center justify-center"
+            className="absolute left-0 top-full w-full bg-[#F9F9F9] shadow-md flex flex-col gap-2 px-4 py-4 md:hidden animate-fade-in items-center justify-center"
           >
             {navLinks.map((link) =>
               link.external ? (
@@ -125,7 +125,7 @@ export default function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
+                    className="block py-2 text-[#0F0F0F] hover:text-[#169EAD] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -135,7 +135,7 @@ export default function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-[#0F0F0F] hover:text-gray-200 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
+                    className="block py-2 text-[#0F0F0F] hover:text-[#169EAD] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
