@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,6 +20,8 @@ function scrollToId(e: React.MouseEvent, href: string) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLUListElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -32,6 +34,22 @@ export default function Header() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
 
   return (
     <header
@@ -90,6 +108,7 @@ export default function Header() {
         </ul>
         {/* Mobile hamburger */}
         <button
+          ref={buttonRef}
           className="md:hidden p-2 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
           aria-label={open ? "Закрыть меню" : "Открыть меню"}
           aria-expanded={open}
@@ -116,6 +135,7 @@ export default function Header() {
         {/* Mobile menu */}
         {open && (
           <ul
+            ref={menuRef}
             className="absolute left-0 top-full w-full bg-[#F9F9F9] shadow-md flex flex-col gap-2 px-4 py-4 md:hidden animate-fade-in items-center justify-center"
           >
             {navLinks.map((link) =>
