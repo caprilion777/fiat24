@@ -10,7 +10,7 @@ export default function Conditions() {
     <div style={{ background: bg, color: text, minHeight: "100vh", padding: 0 }}>
       <div
         style={{ maxWidth: 960, margin: "0 auto", background: bg, borderRadius: 16, color: text }}
-        className="pt-[120px] md:pt-[72px] pb-8 md:pb-16 px-4 text-[16px] md:text-[18px]"
+        className="pt-[112px] md:pt-[112px] pb-8 md:pb-16 px-4 text-[16px] md:text-[18px]"
       >
         <h1 className="font-bold mb-6 responsive-heading" style={{ color: text }}>
           {"Fiat24 — Условия использования, AML/KYC и Декларация"}

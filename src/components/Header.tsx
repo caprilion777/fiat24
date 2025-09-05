@@ -53,10 +53,10 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-30 transition-colors duration-300 h-[88px] md:h-auto bg-[#F9F9F9] shadow-md md:shadow-none md:bg-transparent"
+      className="fixed top-0 left-0 w-full z-30 transition-colors duration-300 h-[88px] md:h-auto bg-[#F9F9F9] shadow-lg"
     >
       <nav
-        className="container max-w-screen-xl mx-auto flex items-center justify-between px-4 h-full"
+        className="container max-w-full mx-auto flex items-center justify-between px-4 h-full"
         aria-label="Главная навигация"
       >
         <Link
@@ -97,13 +97,12 @@ export default function Header() {
             )
           )}
           <li>
-            <a
-              href="#form"
-              onClick={(e) => scrollToId(e, "#form")}
+            <Link
+              href="/#form"
               className="ml-2 rounded-full bg-black text-white px-5 py-2 font-medium shadow-sm hover:bg-gray-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
             >
               Оставить заявку
-            </a>
+            </Link>
           </li>
         </ul>
         {/* Mobile hamburger */}
@@ -164,16 +163,13 @@ export default function Header() {
               )
             )}
             <li>
-              <a
-                href="#form"
-                onClick={(e) => {
-                  scrollToId(e, "#form");
-                  setOpen(false);
-                }}
+              <Link
+                href="/#form"
                 className="block mt-2 rounded-full bg-black text-white px-5 py-2 font-medium shadow-sm hover:bg-gray-800 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 font-bold"
+                onClick={() => setOpen(false)}
               >
                 Оставить заявку
-              </a>
+              </Link>
             </li>
           </ul>
         )}
