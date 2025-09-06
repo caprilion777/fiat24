@@ -15,15 +15,38 @@ const Application = () => {
     telegram: "",
   });
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowModal(true);
-    // Тут можно добавить отправку на сервер
+    setLoading(true);
+    try {
+      const res = await fetch('/api/send-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: form.amount,
+          currency: form.currency,
+          country: form.country,
+          city: form.city,
+          telegram: form.telegram,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setShowModal(true);
+      } else {
+        alert('Ошибка отправки: ' + data.error);
+      }
+    } catch (err) {
+      alert('Ошибка сети');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -114,9 +137,16 @@ const Application = () => {
           </div>
           <button
             type="submit"
-            className="bg-black text-white rounded-full px-5 py-2 text-base md:text-lg font-semibold transition hover:bg-gray-800 w-full mt-2 light-sweep"
+            disabled={loading}
+            className="bg-black text-white rounded-full px-5 py-2 text-base md:text-lg font-semibold transition hover:bg-gray-800 w-full mt-2 light-sweep flex items-center justify-center"
           >
-            Отправить заявку
+            {loading ? (
+              <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="white" strokeWidth="4" fill="none"/>
+                <path className="opacity-75" fill="white" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
+              </svg>
+            ) : null}
+            {loading ? 'Отправка...' : 'Отправить заявку'}
           </button>
         </form>
         {showModal && (

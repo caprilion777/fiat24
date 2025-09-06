@@ -9,8 +9,11 @@ const Hero = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (!bgRef.current) return;
-      const offset = window.scrollY * 0.001; // almost imperceptible effect
-      bgRef.current.style.transform = `translateY(${offset}px)`;
+      const minScale = 1;
+      const maxScale = 1.05;
+      const scrollEffect = window.scrollY * 0.0002;
+      const offset = Math.max(maxScale - scrollEffect, minScale);
+      bgRef.current.style.transform = `scale(${offset})`;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -56,7 +59,7 @@ const Hero = () => {
             Оставить заявку
           </a>
           <a
-            href="https://t.me/@Fiat24Support"
+            href="https://t.me/Fiat24Support"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white border border-white rounded-full px-5 py-2 text-base md:text-lg font-semibold transition w-full md:w-auto text-center"
