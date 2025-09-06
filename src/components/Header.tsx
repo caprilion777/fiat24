@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Главная", href: "/", anchor: false },
   { label: "Как это работает", href: "/how-it-works" },
   { label: "Условия", href: "/conditions" },
-  { label: "Связаться", href: "https://t.me/<MY_HANDLE>", external: true },
+  { label: "Связаться", href: "https://t.me/@Fiat24Support", external: true },
 ];
 
 function scrollToId(e: React.MouseEvent, href: string) {
