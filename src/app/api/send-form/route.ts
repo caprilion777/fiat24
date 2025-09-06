@@ -24,8 +24,13 @@ export async function POST(req: NextRequest) {
 
     console.log('Письмо успешно отправлено');
     return NextResponse.json({ success: true });
-  } catch (error: any) {
-    console.error('Ошибка при отправке письма:', error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('Ошибка при отправке письма:', error);
+      return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    } else {
+      console.error('Ошибка при отправке письма:', error);
+      return NextResponse.json({ success: false, error: 'Unknown error' }, { status: 500 });
+    }
   }
 }
