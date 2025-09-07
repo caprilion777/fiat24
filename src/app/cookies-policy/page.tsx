@@ -95,7 +95,7 @@ function bulletify(text: string) {
   return text.replace(/^\- /gm, '• ');
 }
 
-function boldHeadings(text) {
+function boldHeadings(text: string) {
   // Заголовки: Кратко для пользователей, 1. ..., 2. ..., ... 12. ..., Связь с администрацией сайта, Дата последнего обновления
   return text
     .replace(/^(Кратко для пользователей)$/m, '<b>$1</b>')
