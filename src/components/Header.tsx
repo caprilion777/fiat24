@@ -56,7 +56,7 @@ export default function Header() {
       className="fixed top-0 left-0 w-full z-30 transition-colors duration-300 h-[88px] md:h-auto bg-[#F9F9F9] shadow-lg"
     >
       <nav
-        className="container max-w-full mx-auto flex items-center justify-between px-4 h-full"
+        className="container max-w-[960px] mx-auto flex items-center justify-between px-4 h-full"
         aria-label="Главная навигация"
       >
         <Link
