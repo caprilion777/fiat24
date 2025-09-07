@@ -90,7 +90,7 @@ E-mail: info@fiat24.ru
 
 Дата последнего обновления: сентябрь 2025 г.`;
 
-function bulletify(text) {
+function bulletify(text: string) {
   // Заменить '-' в начале строки на '•'
   return text.replace(/^\- /gm, '• ');
 }
