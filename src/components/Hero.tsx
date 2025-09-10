@@ -40,11 +40,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/30 z-0" aria-hidden="true" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-4 text-center translate-y-8">
         <h1 className="text-white hero-strong-shadow text-[24px] md:text-[36px] font-bold mb-4">
-          Обмен криптовалюты на наличные - быстро и удобно
+          Обмен криптовалюты в деньги — наличные или безналичные. RUB, EUR, USD.
         </h1>
-        <p className="text-white hero-strong-shadow text-lg md:text-xl mb-6 max-w-2xl font-bold">
-          Мы бронируем сделку и подтверждаем встречу
-        </p>
         <div className="grid gap-2 mb-8 text-white text-base md:text-lg text-left font-bold hero-strong-shadow">
           <div>Почему это удобно для вас:</div>
           <div>• Экономия времени</div>

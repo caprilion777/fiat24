@@ -30,7 +30,7 @@ const Footer = () => (
     <div className="container max-w-[960px] mx-auto flex flex-col md:flex-row items-center md:items-start justify-between text-[12px] md:text-[14px] gap-8 md:gap-0">
       {/* Левая колонка */}
       <div className="flex-1 flex flex-col items-center md:items-start mb-4 md:mb-0 text-center md:text-left">
-        <div className="mb-2">© 2021–2025 Fiat24.ru — сервис по организации обмена криптовалюты.</div>
+        <div className="mb-2">© 2021–2025 Fiat24.ru — надёжный обмен криптовалюты в наличные и безналичные деньги.</div>
         <div className="flex flex-row flex-nowrap items-center justify-center md:justify-start gap-2">
           <span>Связаться с нами:</span>
           <a href="mailto:info@fiat24.ru" className="underline">info@fiat24.ru</a>
