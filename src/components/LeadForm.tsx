@@ -10,6 +10,7 @@ const Application = () => {
   const [form, setForm] = useState({
     amount: "",
     currency: "",
+    method: "", // добавлено
     country: "",
     city: "",
     telegram: "",
@@ -31,6 +32,7 @@ const Application = () => {
         body: JSON.stringify({
           amount: form.amount,
           currency: form.currency,
+          method: form.method, // добавлено
           country: form.country,
           city: form.city,
           telegram: form.telegram,
@@ -94,6 +96,17 @@ const Application = () => {
             placeholder="-- Выберите валюту --"
           />
           <CustomSelect
+            id="method"
+            label="Способ получения"
+            value={form.method}
+            onChange={val => setForm(f => ({ ...f, method: val }))}
+            options={[
+              { value: "cash", label: "Наличные средства" },
+              { value: "noncash", label: "Безналичные средства" },
+            ]}
+            placeholder="-- Выберите способ --"
+          />
+          <CustomSelect
             id="country"
             label="Страна получения"
             value={form.country}
@@ -104,6 +117,7 @@ const Application = () => {
               { value: "Грузия", label: "Грузия" },
               { value: "Турция", label: "Турция" },
               { value: "ОАЭ", label: "ОАЭ" },
+              { value: "Другая страна", label: "Другая страна" },
             ]}
             placeholder="-- Выберите страну --"
           />
@@ -164,6 +178,7 @@ const Application = () => {
                   setForm({
                     amount: "",
                     currency: "",
+                    method: "", // добавлено
                     country: "",
                     city: "",
                     telegram: "",

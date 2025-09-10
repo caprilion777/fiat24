@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     console.log('Получены данные формы:', body);
-    const { amount, currency, country, city, telegram } = body;
+    const { amount, currency, method, country, city, telegram } = body;
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       from: 'capri.lion.777@gmail.com',
       to: 'capri.lion.777@gmail.com',
       subject: 'New request from Fiat24',
-      text: `Сумма: ${amount}\nВалюта: ${currency}\nСтрана: ${country}\nГород: ${city}\nTelegram: ${telegram}`,
+      text: `Сумма: ${amount}\nВалюта: ${currency}\nСпособ получения: ${method === 'cash' ? 'Наличные средства' : method === 'noncash' ? 'Безналичные средства' : method}\nСтрана: ${country}\nГород: ${city}\nTelegram: ${telegram}`,
     });
 
     console.log('Письмо успешно отправлено');
